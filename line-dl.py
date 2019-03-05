@@ -1,4 +1,4 @@
-# !/usr/local/bin/python3
+#!/usr/bin/env python3
 # Line Sticker Download Script
 # A Python 3 script to download line stickers in PNG format.
 # Requirements: requests
@@ -12,7 +12,7 @@ from subprocess import call
 import requests
 
 REGEX_STICKER_FILE_URL = r'https?:\/\/(?:[-\/\w.]|(?:%[\da-fA-F]{2}))+;compress=true'
-STICKER_SPAN_REGEX_STRING = "".join((
+REGEX_STICKER_SPAN = "".join((
         r'<span class="\w+" style="background\-image:',
         r'url\(',
         REGEX_STICKER_FILE_URL,
@@ -44,8 +44,8 @@ def main():
                   "Is the URL valid?")
             continue
         try:
-            sticker_count = len(re.findall(STICKER_SPAN_REGEX_STRING, text, flags=re.IGNORECASE))
-            first_sticker = re.search(STICKER_SPAN_REGEX_STRING, text, flags=re.IGNORECASE)
+            sticker_count = len(re.findall(REGEX_STICKER_SPAN, text, flags=re.IGNORECASE))
+            first_sticker = re.search(REGEX_STICKER_SPAN, text, flags=re.IGNORECASE)
 
             first_sticker_id = re.search(r'\/\d+\/', first_sticker.group(0))
             first_sticker_id = int(first_sticker_id.group(0).replace("/", ""))
