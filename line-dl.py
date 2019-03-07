@@ -8,8 +8,6 @@ import os
 import re
 import sys
 
-from subprocess import call
-
 import requests
 
 REGEX_STICKER_FILE_URL = r'https?:\/\/(?:[-\/\w.]|(?:%[\da-fA-F]{2}))+;compress=true'
