@@ -56,7 +56,7 @@ def main():
                   "Is Line down?"
                   )
             continue
-        except:
+        except Exception as inst:
             print("Something went wrong when opening the URL.",
                   "Is the URL valid?")
             continue
@@ -81,7 +81,7 @@ def main():
             stickerset_name = re.sub(r'<h3 class="\w+\">', "", stickerset_name)
             stickerset_name = stickerset_name.replace("</h3>", "")
             dirname = re.sub(r'[^\w\&]', "-", stickerset_name).lower()
-        except:
+        except Exception as inst:
             print("""
                 Requested page does not contain a sticker element.
                 Either Line has changed the webpage schema, or an invalid URL was used.
