@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Line Sticker Download Script
-# A Python 3 script to download line stickers in PNG format.
+# Description: A Python 3 script to download line stickers in PNG format.
 # Requirements: requests
 
 import argparse
