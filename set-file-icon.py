@@ -13,10 +13,8 @@
 import argparse
 
 
-import Cocoa
-
-
 def set_file_icon(file_path, icon_file_path):
+    import Cocoa
     return Cocoa.NSWorkspace.sharedWorkspace().setIcon_forFile_options_(
         Cocoa.NSImage.alloc().initWithContentsOfFile_(icon_file_path),
         file_path,
@@ -27,8 +25,10 @@ def set_file_icon(file_path, icon_file_path):
 def main():
     parser = argparse.ArgumentParser(
         description="Set the icon for specific files on macOS.")
-    parser.add_argument('file_path', metavar='FILE', type=str, help='')
-    parser.add_argument('icon_file_path', metavar='ICONFILE', type=str, help='')
+    parser.add_argument('file_path', metavar='FILE', type=str,
+                        help='Target file to change icon of.')
+    parser.add_argument('icon_file_path', metavar='ICONFILE', type=str,
+                        help='Image file to be used as icon.')
     args = parser.parse_args()
     try:
         set_file_icon(args.file_path, args.icon_file_path)
