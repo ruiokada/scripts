@@ -83,7 +83,7 @@ def main():
 
         try:
             stickerset_name = re.search(
-                r'<p class="mdCMN38Item01Ttl">[\w\.,"\'\-; ]+<\/p>', text).group(0)
+                r'<p class="mdCMN38Item01Ttl">(.*?)<\/p>', text).group(0)
             stickerset_name = stickerset_name.replace(
                 '<p class="mdCMN38Item01Ttl">', "")
             stickerset_name = stickerset_name.replace("</p>", "")
